@@ -1,0 +1,200 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..491d4a213aa6ce8aa00a8b83841bddbd2ea7ecb9
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,190 @@
++<!doctype html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>ShineFlow | Mobile Detailing System</title>
++    <meta
++      name="description"
++      content="A complete starter system for a mobile detailing business using GitHub Pages, Formspree, Calendly, and HubSpot/Google Sheets workflows."
++    />
++    <link rel="stylesheet" href="styles.css" />
++  </head>
++  <body>
++    <header class="site-header">
++      <div class="container nav-wrap">
++        <h1 class="brand">ShineFlow Mobile Detailing</h1>
++        <nav aria-label="Primary">
++          <ul class="nav">
++            <li><a href="#services">Services</a></li>
++            <li><a href="#lead-form">Get Quote</a></li>
++            <li><a href="#booking">Book</a></li>
++            <li><a href="#crm">CRM</a></li>
++          </ul>
++        </nav>
++      </div>
++    </header>
++
++    <main>
++      <section class="hero">
++        <div class="container">
++          <p class="kicker">Website Hosting: GitHub Pages (free)</p>
++          <h2>Run your detailing business from one simple web system.</h2>
++          <p>
++            Capture leads, book jobs, and track customers without buying expensive
++            software. This starter template is built for launch speed.
++          </p>
++          <div class="hero-actions">
++            <a class="btn btn-primary" href="#lead-form">Get a Fast Quote</a>
++            <a class="btn btn-secondary" href="#booking">Book Now</a>
++          </div>
++        </div>
++      </section>
++
++      <section id="services" class="section">
++        <div class="container">
++          <h3>Popular Mobile Detailing Packages</h3>
++          <div class="cards">
++            <article class="card">
++              <h4>Basic Refresh</h4>
++              <p>Exterior wash, wheels, windows, quick interior vacuum.</p>
++              <p class="price">From $79</p>
++            </article>
++            <article class="card">
++              <h4>Interior Deep Clean</h4>
++              <p>Steam cleaning, stain treatment, plastics and leather care.</p>
++              <p class="price">From $149</p>
++            </article>
++            <article class="card">
++              <h4>Full Detail + Protection</h4>
++              <p>Complete detail with wax or spray ceramic sealant.</p>
++              <p class="price">From $229</p>
++            </article>
++          </div>
++        </div>
++      </section>
++
++      <section id="lead-form" class="section section-alt">
++        <div class="container two-col">
++          <div>
++            <h3>Customer Capture (Formspree or Google Forms)</h3>
++            <p>
++              Use this built-in lead form with Formspree. If you prefer, replace it
++              with a Google Form embed.
++            </p>
++            <ul>
++              <li>Collect contact details</li>
++              <li>Capture vehicle info</li>
++              <li>Request service preferences</li>
++            </ul>
++          </div>
++
++          <form
++            id="quoteForm"
++            action="https://formspree.io/f/your-form-id"
++            method="POST"
++            class="form"
++          >
++            <label>
++              Full Name
++              <input type="text" name="name" required />
++            </label>
++            <label>
++              Phone
++              <input type="tel" name="phone" required />
++            </label>
++            <label>
++              Email
++              <input type="email" name="email" required />
++            </label>
++            <label>
++              Vehicle Type
++              <select name="vehicle_type" required>
++                <option value="">Select one</option>
++                <option>Sedan</option>
++                <option>SUV</option>
++                <option>Truck</option>
++                <option>Van</option>
++              </select>
++            </label>
++            <label>
++              Requested Service
++              <textarea name="service_request" rows="4" required></textarea>
++            </label>
++            <button class="btn btn-primary" type="submit">Send Request</button>
++            <p id="formHint" class="hint">
++              Replace <code>your-form-id</code> with your Formspree endpoint.
++            </p>
++          </form>
++        </div>
++      </section>
++
++      <section id="booking" class="section">
++        <div class="container two-col">
++          <div>
++            <h3>Booking System (Calendly recommended)</h3>
++            <p>
++              Connect your availability through Calendly. If you want built-in
++              payment flow, switch to Square Appointments.
++            </p>
++            <a
++              id="bookingLink"
++              class="btn btn-primary"
++              href="https://calendly.com/your-calendly-link"
++              target="_blank"
++              rel="noreferrer"
++              >Open Booking Calendar</a
++            >
++            <p class="hint">
++              Update with your live Calendly URL in <code>script.js</code>.
++            </p>
++          </div>
++          <div class="card checklist">
++            <h4>Booking Setup Checklist</h4>
++            <ol>
++              <li>Create free Calendly account</li>
++              <li>Set event type: Mobile Detail Service</li>
++              <li>Add buffer/travel time</li>
++              <li>Set notifications + reminders</li>
++              <li>Paste your URL in this site</li>
++            </ol>
++          </div>
++        </div>
++      </section>
++
++      <section id="crm" class="section section-alt">
++        <div class="container two-col">
++          <div>
++            <h3>CRM Tracking (HubSpot or Google Sheets)</h3>
++            <p>
++              Start with Google Sheets, then move to HubSpot Free CRM when you need
++              pipeline views, follow-up tracking, and email templates.
++            </p>
++            <ul>
++              <li>New lead</li>
++              <li>Quote sent</li>
++              <li>Booked</li>
++              <li>Completed</li>
++              <li>Follow-up / upsell</li>
++            </ul>
++          </div>
++          <div class="card">
++            <h4>Simple Workflow</h4>
++            <p>
++              Formspree → email notification → copy into HubSpot/Google Sheet →
++              booking link sent → job status updated.
++            </p>
++          </div>
++        </div>
++      </section>
++    </main>
++
++    <footer class="site-footer">
++      <div class="container">
++        <p>Built for GitHub Pages. Optional upgrade: Netlify for easier forms + automation.</p>
++      </div>
++    </footer>
++
++    <script src="script.js"></script>
++  </body>
++</html>
+ 
+EOF
+)
